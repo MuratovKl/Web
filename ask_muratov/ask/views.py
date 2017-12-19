@@ -96,7 +96,7 @@ def registerPage(request):
         'form': form,
     })
 
-@login_required
+@login_required(redirect_field_name='continue')
 def askQuestion(request):
     if request.method == "POST":
         form = QuestionForm(request.POST)
@@ -110,7 +110,7 @@ def askQuestion(request):
         'form': form,
      })
 
-@login_required
+@login_required(redirect_field_name='continue')
 def settings(request):
     user = USERS.get('1')
     return render(request, 'settings.html', {
@@ -118,7 +118,7 @@ def settings(request):
         'user': user
     })
 
-@login_required
+@login_required(redirect_field_name='continue')
 def logout(request):
 	redirect = request.GET.get('continue', '/')
 	auth.logout(request)
