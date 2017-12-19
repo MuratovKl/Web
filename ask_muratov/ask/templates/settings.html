@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="/css/settings_style.css">
+{% endblock style %}
+
+{% block content %}
+<h1 class="questions">Settings: <span id="username">{{ user.nickname }}</span></h1>
+<form>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+          <label for="login-field">Login</label>
+      </div>
+      <div class="col-10">
+          <input class="form-control" type="text" name="login" id="login-field" value="{{ user.login }}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+          <label for="email-field">Email</label>
+      </div>
+      <div class="col-10">
+          <input class="form-control" type="text" name="email" id="email-field" value="{{ user.email }}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+          <label for="nick-field">NickName</label>
+      </div>
+      <div class="col-10">
+          <input class="form-control" type="text" name="nick" id="nick-field" value="{{ user.nickname }}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+          <label for="avatar-field">Upload avatar</label>
+      </div>
+      <div class="col-10">
+          <img class="rounded-circle user-avatar" src="http://via.placeholder.com/125x125">
+          <input type="file" name="avatar" class="form-control-file" id="avatar-field">
+          <button class="btn btn-info save-button" type="submit">Save</button>
+      </div>
+    </div>
+</div>
+</form>
+{% endblock content %}

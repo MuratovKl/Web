@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="/css/ask_style.css">
+{% endblock style %}
+
+{% block content %}
+<h1 class="questions">New Questions</h1>
+{% for error in form.non_field_errors %}
+<p class="error">{{ error }}</p>
+{% endfor %}
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="container-fluid">
+    {% for field in form.visible_fields %}
+  <div style="margin-top: 20px;" class="row">
+    <div class="col-2">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+    </div>
+    <div class="col-10">
+        {{ field }}
+    </div>
+  </div>
+    {% endfor %}
+  <div class="row">
+      <div class="col-2"></div>
+      <div class="col-10">
+          <button class="btn btn-info ask-button" type="submit">ASK!</button>
+      </div>
+  </div>
+</div>
+</form>
+{% endblock content %}

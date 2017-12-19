@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="/css/question_style.css">
+{% endblock style %}
+
+{% block content %}
+<div class="container-fluid question-wrapper clearfloat">
+  <div class="row">
+    <div class="col-2 question-av">
+      <img class="rounded-circle" src="http://via.placeholder.com/125x125">
+      <div class="question-rating">
+        <img src="/svg/thumb-up.svg">
+        <span class="rating-counter">6</span>
+        <img src="/svg/thumb-down.svg">
+      </div>
+    </div>
+    <div class="col-10">
+      <h1>{{ question.title }}</h1>
+      <p>{{ question.text }}</p>
+      <span>Tags:</span>
+      {% for tag in question.tags.all %}
+      <a class="question-tags" href="">{{ tag.tag }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<hr>
+{% for answer in answers %}
+<div class="container-fluid question-wrapper clearfloat">
+  <div class="row">
+    <div class="col-2 question-av">
+      <img class="rounded-circle" src="http://via.placeholder.com/75x75">
+      <div class="question-rating">
+        <img src="/svg/thumb-up.svg">
+        <span class="rating-counter">{{ answer.rating }}</span>
+        <img src="/svg/thumb-down.svg">
+      </div>
+    </div>
+    <div class="col-10">
+      <p>{{ answer.text }}</p>
+      <label class="is-correct">
+        <input type="checkbox" autocomplete="off"> Correct!
+      </label>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<nav>
+  <ul class="pagination">
+    {% if answers.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page={{ answers.previous_page_number }}">Previous</a></li>
+    {% else %}
+    <li class="page-item disabled"><a class="page-link" href="">Previous</a>
+    {% endif %}
+    <li class="page-item active"><a class="page-link" href="">{{ answers.number }}</a></li>
+    {% if answers.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{ answers.next_page_number }}">Next</a></li>
+    {% else %}
+     <li class="page-item disabled"><a class="page-link" href="">Next</a></li>
+    {% endif %}
+  </ul>
+</nav>
+<hr>
+{% for error in form.non_field_errors %}
+<p class="error">{{ error }}</p>
+{% endfor %}
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+  {% for field in form.visible_fields %}
+  {{ field }}
+  {% endfor %}
+  <button class="btn btn-info answer-button" type="submit">Answer</button>
+</form>
+{% endblock content %}

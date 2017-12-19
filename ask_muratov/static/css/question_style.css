@@ -1,0 +1,115 @@
+a.navbar-brand {
+	font-size: 35px;
+	margin-right: 40px;
+}
+
+form.navbar-form {
+	flex-grow: 2;
+}
+
+.navbar-form-item {
+	border-radius: 20px;
+}
+
+div.nav-userbar {
+	min-width: 200px;
+}
+
+div.nav-userbar a {
+	color: white;
+	text-decoration: underline;
+	display: inline-block;
+
+}
+
+div.nav-userbar span {
+	font-size: 18px;
+	color: white;
+	font-weight: bold;
+}
+
+.avatar-miniature {
+	float: left;
+	margin-right: 10px;
+}
+
+a {
+	font-size: 18px;
+}
+
+
+a.tags {
+	margin-right: 15px;
+	text-decoration: none;
+}
+
+a.members {
+	display: block;
+	text-decoration: underline;
+	margin: 10px 0px;
+}
+
+a.questions {
+	margin-left: 20px;
+	text-decoration: underline;
+}
+
+h1.tags {
+	margin: 40px 0px 15px 0px;
+}
+
+h1.members {
+	margin: 15px 0px 15px 0px;
+}
+
+div.question-wrapper {
+	margin: 20px 0px;
+	padding: 15px;
+	box-shadow: 0px 0px 4px rgba(0,0,255,0.5);
+}
+
+.clearfloat::after { 
+  content: "";
+  clear: both;
+  display: block;
+}
+
+div.question-av {
+	text-align: center;
+}
+
+div.question-rating {
+	margin-top: 15px;
+}
+
+div.question-rating img {
+	width: 20px;
+}
+
+div.question-rating span {
+	display: inline-block;
+	width: 20px;
+}
+
+a.question-tags {
+	text-decoration: underline;
+	margin: 0px 5px;
+}
+
+a.answers {
+	margin-right: 15px;
+}
+
+.answer-button {
+	margin: 20px 0px;
+}
+
+.answer-textarea {
+	border: none;
+	box-shadow: 0px 0px 4px rgba(0,0,255,0.5);
+	resize: none;
+}
+
+.is-correct {
+	cursor: pointer;
+}

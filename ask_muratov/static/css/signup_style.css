@@ -1,0 +1,67 @@
+a.navbar-brand {
+	font-size: 35px;
+	margin-right: 40px;
+}
+
+form.navbar-form {
+	flex-grow: 2;
+}
+
+.navbar-form-item {
+	border-radius: 20px;
+}
+
+div.nav-userbar a {
+	color: white;
+	text-decoration: underline;
+	display: inline;
+
+}
+a {
+	font-size: 18px;
+}
+
+
+a.tags {
+	margin-right: 15px;
+	text-decoration: none;
+}
+
+a.members {
+	display: block;
+	text-decoration: underline;
+	margin: 10px 0px;
+}
+
+h1.tags {
+	margin: 40px 0px 15px 0px;
+}
+
+h1.members {
+	margin: 15px 0px 15px 0px;
+}
+
+h1.questions {
+	margin: 40px 0px 15px 0px;
+	display: inline-block;
+}
+
+.clearfloat::after { 
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.registr-button {
+	margin-bottom: 20px;
+}
+
+#login-field,#password-field,#email-field,#avatar-field,#repeat-field,#nick-field {
+	margin-bottom: 20px;
+	width: 300px;
+}
+
+.error {
+	color: red;
+	font-size: 20px;
+}

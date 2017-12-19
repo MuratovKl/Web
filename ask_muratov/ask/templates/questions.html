@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="/css/questions_style.css">
+{% endblock style %}
+
+{% block content %}
+<h1 class="questions">{{ title }}</h1>
+<a class="questions" href="{{ link }}">{{ linkName }}</a>
+
+{% for q in questions %}
+<div class="container-fluid question-wrapper clearfloat">
+  <div class="row">
+    <div class="col-2 question-av">
+      <img class="avatar-miniature rounded-circle" src="http://via.placeholder.com/75x75">
+      <div class="question-rating">
+        <img src="/svg/thumb-up.svg">
+        <span class="rating-counter">{{ q.rating }}</span>
+        <img src="/svg/thumb-down.svg">
+      </div>
+    </div>
+    <div class="col-10">
+      <a class="question-title" href="{% url 'question' q.id %}">{{ q.title }}</a>
+      <p class="question-prev">{{ q.text }}</p>
+      <a class="answers" href="{% url 'question' q.id %}">answers</a>
+      <span>Tags:</span>
+      {% for t in q.tags.all %}
+      <a class="question-tags" href="{% url 'tagQuestions' t.tag %}">{{ t.tag }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endfor %}
+<nav>
+  <ul class="pagination">
+    {% if questions.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page={{ questions.previous_page_number }}">Previous</a></li>
+    {% else %}
+    <li class="page-item disabled"><a class="page-link" href="">Previous</a>
+    {% endif %}
+    <li class="page-item active"><a class="page-link" href="">{{ questions.number }}</a></li>
+    {% if questions.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{ questions.next_page_number }}">Next</a></li>
+    {% else %}
+     <li class="page-item disabled"><a class="page-link" href="">Next</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endblock content %}
